@@ -1,0 +1,59 @@
+/*[1]Seleziono tutti gli insegnanti*/
+SELECT * FROM teachers;
+
+/*[2]Seleziono i capi di ogni dipartimento*/
+SELECT head_of_department FROM departments;
+
+/*[3]Seleziono tutti i corsi di laurea magistrale*/
+SELECT * 
+FROM degrees
+WHERE level = 'magistrale';
+
+/*[4]Seleziono tutti i gli studenti che hanno come nome Marco*/
+SELECT * 
+FROM students
+WHERE name = 'Marco';
+
+/*[5]Seleziono tutti i corsi che valgono più o uguale a 12 cfu*/
+SELECT * 
+FROM courses
+WHERE cfu >= 12;
+
+/*[6]Seleziono tutti i corsi che valgono più di 10 cfu o meno di 5 (estremi non compresi)*/
+SELECT * 
+FROM courses
+WHERE cfu > 10 OR cfu < 5;
+
+/*[7]Seleziono  tutti i corsi  del primo semestre del primo anno di un qualsiasi corso di laurea*/
+SELECT * 
+FROM courses
+WHERE period = 'I semestre' AND year = 1;
+
+/*[8]Conto tutti i corsi che non hanno un sito web*/
+SELECT *
+FROM courses
+WHERE website IS NULL;
+
+/*[9]Seleziono tutti gli insegnanti che hanno un numero di telefono*/
+SELECT * 
+FROM teachers
+WHERE phone IS NOT NULL;
+
+/*--------------------------------BONUS-------------------------------------*/
+
+/*[10]Seleziono tutti gli studenti il cui nome inizia per "E"*/
+SELECT * 
+FROM students
+WHERE name LIKE 'E%';
+
+/*[11]Conto tutti gli insegnanti che iniziano con “E”*/
+SELECT COUNT(name)
+FROM teachers
+WHERE name LIKE 'E%';
+
+/*[12]Conto tutti gli insegnanti che non hanno un numero di telefono*/
+SELECT COUNT(id)
+FROM teachers
+WHERE phone IS NULL;
+
+	
